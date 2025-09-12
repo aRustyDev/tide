@@ -1,0 +1,11 @@
+chart tree "Organization" {
+    node "CEO" {
+        node "CTO" {
+            leaf "Dev Team" [value: 15];
+            leaf "QA Team" [value: 8];
+        }
+        node "CFO" {
+            leaf "Accounting" [value: 5];
+        }
+    }
+}

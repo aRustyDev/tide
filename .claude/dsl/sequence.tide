@@ -1,0 +1,21 @@
+diagram sequence "API Request" {
+    actor Client;
+    participant Gateway;
+    participant Service;
+    database DB;
+
+    Client -> Gateway: POST /order;
+    Gateway -> Service: validateOrder();
+    Service -> DB: checkInventory();
+    DB --> Service: inventory_status;
+
+    alt [inventory_available] {
+        Service -> DB: createOrder();
+        Service --> Gateway: 200 OK;
+        Gateway --> Client: Order Confirmed;
+    }
+    else {
+        Service --> Gateway: 409 Conflict;
+        Gateway --> Client: Out of Stock;
+    }
+}

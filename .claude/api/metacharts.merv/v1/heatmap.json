@@ -1,0 +1,36 @@
+{
+  "apiVersion": "metachart.neptune/v1",
+  "kind": "heatmap",
+  "config": [
+    {
+      "color": "#0000FF",
+      "opacity": 0.5,
+      "filter": "c:category1 && g:group1",
+      "center": 0.0
+    },
+    {
+      "color": "#0000FF",
+      "opacity": 0.5,
+      "filter": "c:category2 && g:group2",
+      "center": 0.25
+    },
+    {
+      "color": "#0000FF",
+      "opacity": 0.5,
+      "filter": "c:category1 || g:group1",
+      "center": 0.5
+    },
+    {
+      "color": "#0000FF",
+      "opacity": 0.5,
+      "filter": "(c:category2 && g:group2) || g:group1",
+      "center": 0.75
+    },
+    {
+      "color": "#0000FF",
+      "opacity": 0.5,
+      "filter": "none",
+      "center": 1.0
+    }
+  ]
+}

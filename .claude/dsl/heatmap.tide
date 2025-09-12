@@ -1,0 +1,18 @@
+meta heatmap "Activity Matrix" {
+    dimensions {
+        x: ["Mon", "Tue", "Wed", "Thu", "Fri"];
+        y: ["Morning", "Afternoon", "Evening"];
+    }
+
+    values {
+        (0, 0) -> 0.8;
+        (1, 0) -> 0.6;
+        (2, 1) -> 0.9;
+        // ... more coordinates
+    }
+
+    scale {
+        gradient: [blue, white, red];
+        range: [0.0, 1.0];
+    }
+}

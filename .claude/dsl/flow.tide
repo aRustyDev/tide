@@ -1,0 +1,19 @@
+diagram flow "Payment Process" {
+    start @Begin;
+
+    @Begin --> [Validate Order];
+    [Validate Order] --> {Order Valid?};
+
+    {Order Valid?} --yes--> [Process Payment];
+    {Order Valid?} --no--> [Return Error];
+
+    [Process Payment] --> {Payment Success?};
+    {Payment Success?} --yes--> [Ship Order];
+    {Payment Success?} --no--> [Refund];
+
+    [Ship Order] --> @End;
+    [Return Error] --> @End;
+    [Refund] --> @End;
+
+    end @End;
+}

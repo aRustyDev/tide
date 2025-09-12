@@ -1,0 +1,581 @@
+==================
+Basic Bar Chart
+==================
+
+chart bar "Quarterly Sales" {
+  config {
+    layout: vertical;
+    stacked: false;
+  }
+  data {
+    "Q1" -> 45000;
+    "Q2" -> 52000;
+    "Q3" -> 48000;
+    "Q4" -> 61000;
+  }
+}
+
+---
+
+(source_file
+  (chart_declaration
+    (chart_type)
+    (string_literal)
+    (block
+      (config_block
+        (config_item
+          (config_property (identifier))
+          (config_value (identifier)))
+        (config_item
+          (config_property (identifier))
+          (config_value (boolean_literal))))
+      (data_block
+        (simple_data_point
+          (string_literal)
+          (number_literal))
+        (simple_data_point
+          (string_literal)
+          (number_literal))
+        (simple_data_point
+          (string_literal)
+          (number_literal))
+        (simple_data_point
+          (string_literal)
+          (number_literal))))))
+
+==================
+Class Diagram with Relationships
+==================
+
+diagram class "User System" {
+  class "User" {
+    - id: String;
+    - email: String;
+    + login(password: String): Boolean;
+  }
+
+  class "Profile" {
+    + name: String;
+    + avatar: String;
+  }
+
+  "User" --> "Profile" [type: composition, multiplicity: "1"];
+}
+
+---
+
+(source_file
+  (diagram_declaration
+    (diagram_type)
+    (string_literal)
+    (diagram_block
+      (class_declaration
+        (string_literal)
+        (field_declaration
+          (visibility_modifier)
+          (identifier)
+          (type_expression (identifier)))
+        (field_declaration
+          (visibility_modifier)
+          (identifier)
+          (type_expression (identifier)))
+        (method_declaration
+          (visibility_modifier)
+          (identifier)
+          (parameter_list
+            (parameter
+              (identifier)
+              (type_expression (identifier))))
+          (type_expression (identifier))))
+      (class_declaration
+        (string_literal)
+        (field_declaration
+          (visibility_modifier)
+          (identifier)
+          (type_expression (identifier)))
+        (field_declaration
+          (visibility_modifier)
+          (identifier)
+          (type_expression (identifier))))
+      (edge_statement
+        (node_identifier (string_literal))
+        (edge_operator)
+        (node_identifier (string_literal))
+        (attributes
+          (attribute_list
+            (attribute
+              (identifier)
+              (attribute_value (identifier)))
+            (attribute
+              (identifier)
+              (attribute_value (string_literal)))))))))
+
+==================
+Sequence Diagram with Flow Control
+==================
+
+diagram sequence "Authentication" {
+  actor User;
+  participant Browser;
+  participant Server;
+  database DB;
+
+  User -> Browser: Click login;
+  Browser -> Server: POST /auth;
+
+  alt [credentials_valid] {
+    Server -> DB: Query user;
+    DB --> Server: User data;
+    Server --> Browser: 200 OK;
+  }
+  else {
+    Server --> Browser: 401 Unauthorized;
+  }
+}
+
+---
+
+(source_file
+  (diagram_declaration
+    (diagram_type)
+    (string_literal)
+    (diagram_block
+      (actor_declaration (identifier))
+      (participant_declaration (identifier))
+      (participant_declaration (identifier))
+      (database_declaration (identifier))
+      (edge_statement
+        (node_identifier (identifier))
+        (edge_operator)
+        (node_identifier (identifier))
+        (edge_label (string_literal)))
+      (edge_statement
+        (node_identifier (identifier))
+        (edge_operator)
+        (node_identifier (identifier))
+        (edge_label (string_literal)))
+      (conditional_block
+        (condition_expression (string_literal))
+        (block
+          (edge_statement
+            (node_identifier (identifier))
+            (edge_operator)
+            (node_identifier (identifier))
+            (edge_label (string_literal)))
+          (edge_statement
+            (node_identifier (identifier))
+            (edge_operator)
+            (node_identifier (identifier))
+            (edge_label (string_literal)))
+          (edge_statement
+            (node_identifier (identifier))
+            (edge_operator)
+            (node_identifier (identifier))
+            (edge_label (string_literal))))
+        (else_clause
+          (block
+            (edge_statement
+              (node_identifier (identifier))
+              (edge_operator)
+              (node_identifier (identifier))
+              (edge_label (string_literal)))))))))
+
+==================
+Flow Diagram with Node Shapes
+==================
+
+diagram flow "Process" {
+  @start[Start Process];
+  process1[Process Data];
+  decision{Valid?};
+  process2[[Subprocess]];
+  @end((Complete));
+
+  @start --> process1;
+  process1 --> decision;
+  decision --> process2 [Yes];
+  decision --> @end [No];
+  process2 --> @end;
+}
+
+---
+
+(source_file
+  (diagram_declaration
+    (diagram_type)
+    (string_literal)
+    (diagram_block
+      (node_statement
+        (node_identifier (identifier))
+        (node_definition (string_literal)))
+      (node_statement
+        (node_identifier (identifier))
+        (node_definition (string_literal)))
+      (node_statement
+        (node_identifier (identifier))
+        (node_definition (string_literal)))
+      (node_statement
+        (node_identifier (identifier))
+        (node_definition (string_literal)))
+      (node_statement
+        (node_identifier (identifier))
+        (node_definition (string_literal)))
+      (edge_statement
+        (node_identifier (identifier))
+        (edge_operator)
+        (node_identifier (identifier)))
+      (edge_statement
+        (node_identifier (identifier))
+        (edge_operator)
+        (node_identifier (identifier)))
+      (edge_statement
+        (node_identifier (identifier))
+        (edge_operator)
+        (node_identifier (identifier))
+        (edge_label (string_literal)))
+      (edge_statement
+        (node_identifier (identifier))
+        (edge_operator)
+        (node_identifier (identifier))
+        (edge_label (string_literal)))
+      (edge_statement
+        (node_identifier (identifier))
+        (edge_operator)
+        (node_identifier (identifier))))))
+
+==================
+Tree Structure
+==================
+
+chart tree "Organization" {
+  node "Company" {
+    node "Engineering" {
+      leaf "Frontend" [size: 10];
+      leaf "Backend" [size: 15];
+    }
+    node "Sales" {
+      leaf "Regional" [size: 8];
+      leaf "Enterprise" [size: 5];
+    }
+  }
+}
+
+---
+
+(source_file
+  (chart_declaration
+    (chart_type)
+    (string_literal)
+    (block
+      (node_declaration
+        (string_literal)
+        (node_children
+          (node_declaration
+            (string_literal)
+            (node_children
+              (leaf_declaration
+                (string_literal)
+                (attributes
+                  (attribute_list
+                    (attribute
+                      (identifier)
+                      (attribute_value (number_literal))))))
+              (leaf_declaration
+                (string_literal)
+                (attributes
+                  (attribute_list
+                    (attribute
+                      (identifier)
+                      (attribute_value (number_literal))))))))
+          (node_declaration
+            (string_literal)
+            (node_children
+              (leaf_declaration
+                (string_literal)
+                (attributes
+                  (attribute_list
+                    (attribute
+                      (identifier)
+                      (attribute_value (number_literal))))))
+              (leaf_declaration
+                (string_literal)
+                (attributes
+                  (attribute_list
+                    (attribute
+                      (identifier)
+                      (attribute_value (number_literal)))))))))))))
+
+==================
+Series Data with Attributes
+==================
+
+chart line "Temperature" {
+  data {
+    series "City A" {
+      "Jan" -> 5 [color: "#FF0000"];
+      "Feb" -> 8 [color: "#FF0000"];
+      "Mar" -> 12 [color: "#FF0000"];
+    }
+    series "City B" {
+      "Jan" -> 10 [color: "#0000FF"];
+      "Feb" -> 11 [color: "#0000FF"];
+      "Mar" -> 15 [color: "#0000FF"];
+    }
+  }
+}
+
+---
+
+(source_file
+  (chart_declaration
+    (chart_type)
+    (string_literal)
+    (block
+      (data_block
+        (series_declaration
+          (string_literal)
+          (simple_data_point
+            (string_literal)
+            (number_literal)
+            (attributes
+              (attribute_list
+                (attribute
+                  (identifier)
+                  (attribute_value (string_literal))))))
+          (simple_data_point
+            (string_literal)
+            (number_literal)
+            (attributes
+              (attribute_list
+                (attribute
+                  (identifier)
+                  (attribute_value (string_literal))))))
+          (simple_data_point
+            (string_literal)
+            (number_literal)
+            (attributes
+              (attribute_list
+                (attribute
+                  (identifier)
+                  (attribute_value (string_literal)))))))
+        (series_declaration
+          (string_literal)
+          (simple_data_point
+            (string_literal)
+            (number_literal)
+            (attributes
+              (attribute_list
+                (attribute
+                  (identifier)
+                  (attribute_value (string_literal))))))
+          (simple_data_point
+            (string_literal)
+            (number_literal)
+            (attributes
+              (attribute_list
+                (attribute
+                  (identifier)
+                  (attribute_value (string_literal))))))
+          (simple_data_point
+            (string_literal)
+            (number_literal)
+            (attributes
+              (attribute_list
+                (attribute
+                  (identifier)
+                  (attribute_value (string_literal)))))))))))
+
+==================
+Enum with Variants
+==================
+
+diagram class "State Machine" {
+  enum "State" {
+    Idle;
+    Running { pid: Integer };
+    Error { code: Integer, message: String };
+  }
+}
+
+---
+
+(source_file
+  (diagram_declaration
+    (diagram_type)
+    (string_literal)
+    (diagram_block
+      (enum_declaration
+        (string_literal)
+        (enum_variant (identifier))
+        (enum_variant
+          (identifier)
+          (field_list
+            (field_declaration
+              (identifier)
+              (type_expression (identifier)))))
+        (enum_variant
+          (identifier)
+          (field_list
+            (field_declaration
+              (identifier)
+              (type_expression (identifier)))
+            (field_declaration
+              (identifier)
+              (type_expression (identifier)))))))))
+
+==================
+Heatmap Meta Chart
+==================
+
+meta heatmap "Activity" {
+  dimensions {
+    x: ["Mon", "Tue", "Wed", "Thu", "Fri"];
+    y: ["Morning", "Afternoon", "Evening"];
+  }
+  values {
+    (0, 0) -> 5;
+    (1, 0) -> 8;
+    (2, 1) -> 12;
+    (3, 2) -> 15;
+    (4, 1) -> 10;
+  }
+  scale {
+    min: 0;
+    max: 20;
+    colors: ["#FFFFFF", "#FF0000"];
+  }
+}
+
+---
+
+(source_file
+  (meta_declaration
+    (meta_type)
+    (string_literal)
+    (meta_block
+      (dimensions_block
+        (dimension_spec
+          (identifier)
+          (array_literal
+            (config_value (string_literal))
+            (config_value (string_literal))
+            (config_value (string_literal))
+            (config_value (string_literal))
+            (config_value (string_literal))))
+        (dimension_spec
+          (identifier)
+          (array_literal
+            (config_value (string_literal))
+            (config_value (string_literal))
+            (config_value (string_literal)))))
+      (values_block
+        (value_mapping
+          (coordinate
+            (number_literal)
+            (number_literal))
+          (number_literal))
+        (value_mapping
+          (coordinate
+            (number_literal)
+            (number_literal))
+          (number_literal))
+        (value_mapping
+          (coordinate
+            (number_literal)
+            (number_literal))
+          (number_literal))
+        (value_mapping
+          (coordinate
+            (number_literal)
+            (number_literal))
+          (number_literal))
+        (value_mapping
+          (coordinate
+            (number_literal)
+            (number_literal))
+          (number_literal)))
+      (scale_block
+        (scale_property
+          (identifier)
+          (number_literal))
+        (scale_property
+          (identifier)
+          (number_literal))
+        (scale_property
+          (identifier)
+          (array_literal
+            (config_value (string_literal))
+            (config_value (string_literal))))))))
+
+==================
+Complex Config with Objects
+==================
+
+chart bubble {
+  config {
+    layout: {
+      type: cartesian;
+      xAxis: { min: 0, max: 100 };
+      yAxis: { min: 0, max: 100 };
+    };
+    style: {
+      bubbles: {
+        minSize: 5;
+        maxSize: 50;
+        opacity: 0.7;
+      };
+    };
+  }
+}
+
+---
+
+(source_file
+  (chart_declaration
+    (chart_type)
+    (block
+      (config_block
+        (config_item
+          (config_property (identifier))
+          (config_value
+            (object_literal
+              (object_property
+                (identifier)
+                (config_value (identifier)))
+              (object_property
+                (identifier)
+                (config_value
+                  (object_literal
+                    (object_property
+                      (identifier)
+                      (config_value (number_literal)))
+                    (object_property
+                      (identifier)
+                      (config_value (number_literal))))))
+              (object_property
+                (identifier)
+                (config_value
+                  (object_literal
+                    (object_property
+                      (identifier)
+                      (config_value (number_literal)))
+                    (object_property
+                      (identifier)
+                      (config_value (number_literal)))))))))
+        (config_item
+          (config_property (identifier))
+          (config_value
+            (object_literal
+              (object_property
+                (identifier)
+                (config_value
+                  (object_literal
+                    (object_property
+                      (identifier)
+                      (config_value (number_literal)))
+                    (object_property
+                      (identifier)
+                      (config_value (number_literal)))
+                    (object_property
+                      (identifier)
+                      (config_value (number_literal)))))))))))))

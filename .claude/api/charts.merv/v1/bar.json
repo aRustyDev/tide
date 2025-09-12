@@ -1,0 +1,40 @@
+{
+  "apiVersion": "bar.chart.neptune/v1",
+  "kind": "bar",
+  "name": "root",
+  "config": {
+    "stacked": true,
+    "grouped": true,
+    "categorized": true,
+    "layout": "vertical|horizontal|funnel|radar|radial|diverging",
+    "start": "origin|first|center",
+    "value": "end|after|start|before|center|median|bullet|none",
+    "bounds": "<start>:<end>|auto",
+    "step": {
+      "size": "<size>|auto",
+      "count": "<count>|auto"
+    }
+  },
+  "data": [
+    {
+      "label": "col-1",
+      "value": 100,
+      "color": "red",
+      "opacity": 100,
+      "group": 0,
+      "category": 0,
+      "layer": 0,
+      "order": 0
+    },
+    {
+      "label": "col-2",
+      "value": 100,
+      "color": "blue",
+      "opacity": 100,
+      "group": 0,
+      "category": 0,
+      "layer": 0,
+      "order": 0
+    }
+  ]
+}

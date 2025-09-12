@@ -1,0 +1,38 @@
+{
+  "apiVersion": "tree.chart.neptune/v1",
+  "kind": "generic",
+  "name": "root",
+  "data": [
+    {
+      "name": "apple",
+      "value": "1000",
+      "children": [
+        {
+          "name": "carton",
+          "value": "200",
+          "children": []
+        },
+        {
+          "name": "bulk",
+          "value": "600",
+          "children": []
+        },
+        {
+          "name": "bag",
+          "value": "100",
+          "children": []
+        },
+        {
+          "name": "bottle",
+          "value": "100",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "strawberry",
+      "value": "123",
+      "children": []
+    }
+  ]
+}

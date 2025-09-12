@@ -1,0 +1,22 @@
+diagram class "OrderSystem" {
+    class "OrderService" {
+        + db: Database;
+        - payment: PaymentProvider;
+        + handlers: List<OrderHandler>;
+
+        + processOrder(order: Order): Result;
+        + validatePayment(): bool;
+    }
+
+    enum "OrderStatus" {
+        Pending;
+        Paid { transaction_id: String };
+        Shipped { tracking: String };
+        Failed(ErrorDetails);
+    }
+
+    // Relationships
+    "OrderService" --> "Database" [type: composition];
+    "OrderService" ..> "PaymentProvider" [type: dependency];
+    "OrderService" o--> "OrderHandler" [multiplicity: "1..*"];
+}

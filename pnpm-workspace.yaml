@@ -1,0 +1,4 @@
+packages:
+  - "langium/Neptune/packages/language"
+  - "langium/Neptune/packages/cli"
+  - "langium/Neptune/packages/extension"

@@ -1,0 +1,6 @@
+[submodule "extensions/zed"]
+	path = extensions/zed
+	url = https://github.com/aRustyDev/zed-tide.git
+[submodule "grammars/tree-sitter"]
+	path = grammars/tree-sitter
+	url = https://github.com/aRustyDev/tree-sitter-tide.git

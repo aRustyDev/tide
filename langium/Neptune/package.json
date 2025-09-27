@@ -15,12 +15,14 @@
     },
     "devDependencies": {
         "@types/node": "~20.17.48",
+        "esbuild": "^0.25.10",
         "shx": "~0.4.0",
         "typescript": "~5.8.3"
     },
     "volta": {
         "node": "20.19.2",
-        "npm": "10.8.2"
+        "npm": "10.8.2",
+        "pnpm": "10.17.1"
     },
     "workspaces": [
         "packages/language",

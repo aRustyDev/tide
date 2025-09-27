@@ -1,0 +1,16 @@
+{
+    "projectName": "Tide",
+    "languages": [
+        {
+            "id": "tide",
+            "grammar": "src/tide.langium",
+            "fileExtensions": [
+                "{tide,td}"
+            ],
+            "textMate": {
+                "out": "syntaxes/tide.tmLanguage.json"
+            }
+        }
+    ],
+    "out": "src/generated"
+}

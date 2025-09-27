@@ -1,0 +1,7 @@
+type "kind" "title" {
+  param = "value"
+}
+
+type "kind" "title" {
+  param = "value"
+}
